@@ -63,9 +63,10 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
             }
         }
         
-        $("document").ready(funtion() {
+        $(funtion() {
+           alert("Hello there");
            var qs = parseQueryString();
-
+            
             if (qs != null && qs.variant) {
                 alert("Hello, I am variant:" + qs.variant);
             }
