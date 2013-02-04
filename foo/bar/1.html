@@ -43,6 +43,33 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
               var pageTracker = _gat._getTracker("UA-38216138-1");
             pageTracker._trackPageview();
             } catch(err) {}
+            
+            function parseQueryString() {
+            if (!location.search) {
+                return null;
+            }
+            else {
+                var queryStr = location.search.replace('?', '').split('&');
+                var queryObj = {};
+
+                for (var i = 0; i < queryStr.length; i++) {
+                    var name = queryStr[i].split('=')[0];
+                    var value = queryStr[i].split('=')[1];
+
+                    queryObj[name] = value;
+                }
+
+                return queryObj;
+            }
+        }
+        
+        $("document").ready(funtion() {
+           var qs = parseQueryString();
+
+            if (qs != null && qs.variant) {
+                alert("Hello, I am variant:" + qs.variant);
+            }
+        });
           </script>
 </body>
 </html>
